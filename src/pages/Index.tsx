@@ -172,6 +172,61 @@ const Index = () => {
         </div>
       </motion.section>
 
+      {/* Daycare Listings Section - Prime Focus */}
+      <motion.section 
+        id="babylounges"
+        className="py-20 px-4 bg-muted/20"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured Daycares Near You</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Discover trusted and verified daycare centers in your area with transparent pricing and facilities
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
+            variants={stagger}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+          >
+            {daycares.map((daycare, index) => (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+              >
+                <DaycareCard {...daycare} />
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            className="text-center mt-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <Button size="lg" variant="outline" className="px-8 py-3">
+              <MapPin className="h-4 w-4 mr-2" />
+              View All Daycares in Your Area
+            </Button>
+          </motion.div>
+        </div>
+      </motion.section>
+
       {/* Why Choose Section */}
       <motion.section 
         id="about"
@@ -252,61 +307,6 @@ const Index = () => {
               </div>
             </motion.div>
           </div>
-        </div>
-      </motion.section>
-
-      {/* Daycare Listings Section */}
-      <motion.section 
-        id="babylounges"
-        className="py-20 px-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="max-w-7xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Featured Daycares Near You</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Discover trusted and verified daycare centers in your area with transparent pricing and facilities
-            </p>
-          </motion.div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
-            variants={stagger}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-          >
-            {daycares.map((daycare, index) => (
-              <motion.div
-                key={index}
-                variants={fadeInUp}
-              >
-                <DaycareCard {...daycare} />
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <motion.div
-            className="text-center mt-12"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <Button size="lg" variant="outline" className="px-8 py-3">
-              <MapPin className="h-4 w-4 mr-2" />
-              View All Daycares in Your Area
-            </Button>
-          </motion.div>
         </div>
       </motion.section>
 
